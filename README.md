@@ -13,8 +13,7 @@ Http kotlin android
 `    println("FAILED")`  
 `}`   
 
-如果使用multipart文件上传, 先设置application context
-Http.appContext = context.getAppliactionContext()
-
-...
+如果使用multipart文件上传, 先设置application context,以便读取文件uri的内容    
+`Http.appContext = context.getAppliactionContext()`  
+...  
 
