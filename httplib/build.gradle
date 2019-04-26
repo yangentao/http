@@ -12,7 +12,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
-        versionName "2.0.1"
+        versionName "2.0.2"
     }
 
 }
@@ -24,7 +24,7 @@ dependencies {
 
     implementation 'dev.entao:log:2.0.1'
     implementation 'dev.entao:json:2.0.1'
-    implementation 'dev.entao:base:2.0.1'
+    implementation 'dev.entao:base:2.0.2'
 }
 
 
