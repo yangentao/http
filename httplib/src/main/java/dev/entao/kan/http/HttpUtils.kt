@@ -1,4 +1,4 @@
-package dev.entao.http
+package dev.entao.kan.http
 
 import java.io.IOException
 import java.io.OutputStream

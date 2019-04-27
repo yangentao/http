@@ -1,4 +1,4 @@
-package dev.entao.http
+package dev.entao.kan.http
 
 private val codeMap = hashMapOf(
 		100 to "Continue",

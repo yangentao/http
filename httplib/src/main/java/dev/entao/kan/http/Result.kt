@@ -1,8 +1,8 @@
-package dev.entao.http
+package dev.entao.kan.http
 
-import dev.entao.json.YsonArray
-import dev.entao.json.YsonObject
-import dev.entao.json.createYsonModel
+import dev.entao.kan.json.YsonArray
+import dev.entao.kan.json.YsonObject
+import dev.entao.kan.json.createYsonModel
 import kotlin.reflect.KClass
 
 /**

@@ -1,20 +1,20 @@
 @file:Suppress("MemberVisibilityCanBePrivate", "unused")
 
-package dev.entao.http
+package dev.entao.kan.http
 
 
 import android.app.Application
 import android.net.Uri
 import android.os.NetworkOnMainThreadException
 import android.util.Base64
-import dev.entao.base.Progress
-import dev.entao.base.closeSafe
-import dev.entao.base.copyStream
-import dev.entao.base.head
-import dev.entao.json.YsonObject
-import dev.entao.log.log
-import dev.entao.log.logd
-import dev.entao.log.loge
+import dev.entao.kan.base.Progress
+import dev.entao.kan.base.closeSafe
+import dev.entao.kan.base.copyStream
+import dev.entao.kan.base.ex.head
+import dev.entao.kan.json.YsonObject
+import dev.entao.kan.log.log
+import dev.entao.kan.log.logd
+import dev.entao.kan.log.loge
 import java.io.*
 import java.net.*
 import java.nio.charset.Charset

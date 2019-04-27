@@ -1,9 +1,9 @@
-package dev.entao.http
+package dev.entao.kan.http
 
-import dev.entao.base.closeSafe
-import dev.entao.json.YsonArray
-import dev.entao.json.YsonObject
-import dev.entao.log.loge
+import dev.entao.kan.base.closeSafe
+import dev.entao.kan.json.YsonArray
+import dev.entao.kan.json.YsonObject
+import dev.entao.kan.log.loge
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject

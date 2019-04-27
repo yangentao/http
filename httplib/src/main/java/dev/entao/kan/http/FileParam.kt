@@ -1,7 +1,7 @@
-package dev.entao.http
+package dev.entao.kan.http
 
 import android.net.Uri
-import dev.entao.base.Progress
+import dev.entao.kan.base.Progress
 
 /**
  * Created by entaoyang@163.com on 2016-11-12.
