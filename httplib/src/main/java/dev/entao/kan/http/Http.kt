@@ -324,13 +324,14 @@ class Http(val url: String) {
             val appCtx = appContext
                 ?: throw IllegalArgumentException("You should set Http.appContext only once before use multipart method")
             for (fp in fileList) {
+                val fis = appCtx.contentResolver.openInputStream(fp.file) ?: continue
                 write(os, BOUNDARY_START)
                 write(os, "Content-Disposition:form-data;name=\"${fp.key}\";filename=\"${fp.filename}\"\r\n")
                 write(os, "Content-Type:${fp.mime}\r\n")
                 write(os, "Content-Transfer-Encoding: binary\r\n")
                 write(os, "\r\n")
                 val progress = fp.progress
-                val fis = appCtx.contentResolver.openInputStream(fp.file)
+
                 val total = fis.available()
                 if (os is SizeStream) {
                     os.incSize(total)

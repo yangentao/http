@@ -6,13 +6,13 @@ apply plugin: 'maven'
 group = 'dev.entao.kan'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 27
+        targetSdkVersion 29
         versionCode 1
-        versionName "3.1.40"
+        versionName "4.0.0"
     }
 
 }
@@ -22,9 +22,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation 'dev.entao.kan:log:3.1.40'
-    implementation 'dev.entao.kan:json:3.1.40'
-    implementation 'dev.entao.kan:base:3.1.40'
+    implementation 'dev.entao.kan:log:4.0.0'
+    implementation 'dev.entao.kan:json:4.0.0'
+    implementation 'dev.entao.kan:base:4.0.0'
 }
 
 
@@ -40,8 +40,8 @@ artifacts {
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: 'http://app800.cn/maven/repository/releases/') {
-                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+            repository(url: 'http://maven.app800.cn/repository/public/') {
+                authentication(userName: ARCHIVA_USERNAME, password: ARCHIVA_PASSWORD)
             }
             pom.project {
                 artifactId = "http"

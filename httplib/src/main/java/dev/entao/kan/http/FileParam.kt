@@ -10,7 +10,7 @@ import dev.entao.kan.base.Progress
 //file, key, filename, mime都不能是空
 class FileParam(val key: String,
                 val file: Uri,
-                var filename: String = file.lastPathSegment,
+                var filename: String = file.lastPathSegment ?: "",
                 var mime: String = "application/octet-stream"
 ) {
 
