@@ -394,28 +394,33 @@ class Http(val url: String) {
 
         logd("--HttpStatus:", result.responseCode, result.responseMsg ?: "")
 
-        val os: OutputStream = if (this.saveToFile != null) {
-            val dir = this.saveToFile!!.parentFile
-            if (dir != null) {
-                if (!dir.exists()) {
-                    if (!dir.mkdirs()) {
-                        loge("创建目录失败")
-                        throw IOException("创建目录失败!")
+        try {
+            val os: OutputStream = if (this.saveToFile != null) {
+                val dir = this.saveToFile!!.parentFile
+                if (dir != null) {
+                    if (!dir.exists()) {
+                        if (!dir.mkdirs()) {
+                            loge("创建目录失败")
+                            throw IOException("创建目录失败!")
+                        }
                     }
                 }
+                FileOutputStream(saveToFile)
+            } else {
+                ByteArrayOutputStream(if (total > 0) total else 64)
             }
-            FileOutputStream(saveToFile)
-        } else {
-            ByteArrayOutputStream(if (total > 0) total else 64)
-        }
-        var input = connection.inputStream
-        val mayGzip = connection.contentEncoding
-        if (mayGzip != null && mayGzip.contains("gzip")) {
-            input = GZIPInputStream(input)
-        }
-        copyStream(input, true, os, true, total, progress)
-        if (os is ByteArrayOutputStream) {
-            result.response = os.toByteArray()
+
+            var input = connection.inputStream
+            val mayGzip = connection.contentEncoding
+            if (mayGzip != null && mayGzip.contains("gzip")) {
+                input = GZIPInputStream(input)
+            }
+            copyStream(input, true, os, true, total, progress)
+            if (os is ByteArrayOutputStream) {
+                result.response = os.toByteArray()
+            }
+        } catch (ex: Exception) {
+            result.exception = ex
         }
         return result
     }
