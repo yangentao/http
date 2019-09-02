@@ -20,6 +20,12 @@ class FileParam(
 
     var progress: Progress? = null
 
+    constructor(key: String, file: File) : this(
+        key,
+        Uri.fromFile(file),
+        file.name,
+        MimeOfFile(file)
+    )
 
     fun mime(mime: String?): FileParam {
         if (mime != null) {
@@ -48,7 +54,8 @@ class FileParam(
 fun MimeOfFile(file: File): String {
     val ext = file.extension
     if (ext != file.name && ext.isNotEmpty()) {
-        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext) ?: "application/octet-stream"
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext)
+            ?: "application/octet-stream"
     }
     return "application/octet-stream"
 }
