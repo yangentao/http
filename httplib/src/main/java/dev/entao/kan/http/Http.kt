@@ -247,8 +247,10 @@ class Http(val url: String) {
         return file(p)
     }
 
-    fun file(key: String, file: File): Http {
-        return file(FileParam(key, file))
+    fun file(key: String, file: File): FileParam {
+        val p = FileParam(key, file)
+        file(p)
+        return p
     }
 
     fun file(key: String, file: Uri, block: FileParam.() -> Unit): Http {
